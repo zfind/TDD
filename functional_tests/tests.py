@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import WebDriverException
 import time
 import sys
+import os
 
 
 MAX_WAIT = 10
@@ -14,7 +15,7 @@ class NewVisitiorTest(StaticLiveServerTestCase):
         self.browser = webdriver.Firefox()
         staging_server = os.environ.get('STAGING_SERVER')
         if staging_server:
-            settatr(self, 'live_server_url', 'http://' + staging_server)
+            setattr(self, 'live_server_url', 'http://' + staging_server)
 
     def tearDown(self):
         self.browser.quit()
